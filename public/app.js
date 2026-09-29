@@ -36,9 +36,69 @@
   const WEEKDAY_LABELS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
   const WEEKDAY_LABELS_SHORT = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
-  // Emoji = cualquier carácter con la propiedad Unicode Extended_Pictographic.
-  // No capturamos el selector de variación (️) aparte: no hace falta, va pegado al glyph.
-  const EMOJI_RE = /\p{Extended_Pictographic}/gu;
+  /*
+   * Emojis.
+   *
+   * Para el usuario un emoji NO es un carácter, es un clúster de grafemas:
+   *   ❤️  = U+2764 + U+FE0F (VS16, "presentación de emoji")
+   *   👨‍👩‍👧 = varias personas unidas con U+200D (ZWJ)
+   *   🇪🇸 = dos Regional Indicators (bandera)
+   *   👍🏽 = base + modificador de tono de piel
+   *   1️⃣ = dígito + VS16 + U+20E3 (keycap)
+   * Quedarse con el carácter base pierde el VS16 (el ❤ sale gris, como texto,
+   * en Windows/Chromium) y rompe las secuencias ZWJ en sus piezas. Por eso los
+   * extraemos con Intl.Segmenter (granularidad grafema) y, si el navegador no
+   * lo tiene, con una regex basada en Extended_Pictographic que también
+   * reconoce la secuencia completa (VS16, tonos, ZWJ, banderas, keycaps).
+   */
+  const graphemeSegmenter =
+    typeof Intl !== "undefined" && typeof Intl.Segmenter === "function"
+      ? new Intl.Segmenter(undefined, { granularity: "grapheme" })
+      : null;
+
+  // Filtro barato: solo segmentamos los mensajes que pueden contener algún emoji.
+  const EMOJI_HINT_RE = /[\p{Extended_Pictographic}\p{Regional_Indicator}⃣]/u;
+  // ¿Este clúster de grafemas es un emoji? (pictograma, bandera de 2 RI o keycap)
+  const EMOJI_CLUSTER_RE = /\p{Extended_Pictographic}|^\p{Regional_Indicator}{2}$|^[0-9#*]️?⃣$/u;
+
+  // Respaldo sin Intl.Segmenter: pictograma + (tono | VS15/VS16 | etiquetas), unidos por ZWJ.
+  const PICTO_PART = "\\p{Extended_Pictographic}(?:\\p{Emoji_Modifier}|[\\uFE0E\\uFE0F]|[\\u{E0020}-\\u{E007F}])*";
+  const EMOJI_SEQUENCE_RE = new RegExp(
+    "\\p{Regional_Indicator}{2}" + // bandera
+      "|[0-9#*]\\uFE0F?\\u20E3" + // keycap
+      "|" + PICTO_PART + "(?:\\u200D" + PICTO_PART + ")*", // pictograma(s) unidos por ZWJ
+    "gu"
+  );
+
+  // Emoji cuyo carácter base es "texto por defecto" (❤ ✔ ☺ ▶…): sin VS16 los
+  // navegadores lo dibujan como símbolo gris. Es la variante que lo pierde.
+  const TEXT_DEFAULT_EMOJI_RE = /^(?=\p{Emoji})(?!\p{Emoji_Presentation})/u;
+
+  /**
+   * Unifica la variante "❤" (sin VS16) con "❤️" para que cuenten juntas y se
+   * dibujen a color. No toca lo que ya trae VS16/VS15 ni las secuencias con
+   * tono de piel (que no llevan VS16 en su forma canónica).
+   */
+  function toEmojiPresentation(cluster) {
+    const first = String.fromCodePoint(cluster.codePointAt(0));
+    const rest = cluster.slice(first.length);
+    if (/^[︎️]/.test(rest) || /^\p{Emoji_Modifier}/u.test(rest)) return cluster;
+    return TEXT_DEFAULT_EMOJI_RE.test(first) ? first + "️" + rest : cluster;
+  }
+
+  /** Devuelve los emojis del texto, uno por elemento, como clústeres completos. */
+  function extractEmojis(text) {
+    if (!EMOJI_HINT_RE.test(text)) return [];
+    const found = [];
+    if (graphemeSegmenter) {
+      for (const { segment } of graphemeSegmenter.segment(text)) {
+        if (EMOJI_CLUSTER_RE.test(segment)) found.push(toEmojiPresentation(segment));
+      }
+    } else {
+      for (const m of text.match(EMOJI_SEQUENCE_RE) || []) found.push(toEmojiPresentation(m));
+    }
+    return found;
+  }
 
   // Formatos reales del export de WhatsApp en español:
   //   [24/01/23, 14:03:05] Nombre: mensaje
@@ -443,7 +503,7 @@
           const norm = normalizeToken(tok);
           if (norm) wordFreq.set(norm, (wordFreq.get(norm) || 0) + 1);
         }
-        const emojis = msg.text.match(EMOJI_RE) || [];
+        const emojis = extractEmojis(msg.text);
         totalEmojis += emojis.length;
         for (const em of emojis) emojiFreq.set(em, (emojiFreq.get(em) || 0) + 1);
       }
