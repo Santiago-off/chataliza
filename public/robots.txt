@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chataliza.pages.dev/sitemap.xml

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Chataliza — Analizador de chats de WhatsApp online y gratis</title>
+<meta name="description" content="Analiza tu chat de WhatsApp sin que salga de tu móvil: quién escribe más, horas activas, emojis y palabras. 100% en tu navegador, gratis y sin subir nada.">
+<meta name="keywords" content="analizar chat whatsapp, estadísticas whatsapp, quién escribe más whatsapp, analizador de conversaciones, chat whatsapp en cifras">
+<link rel="canonical" href="https://chataliza.pages.dev/">
+<meta name="author" content="Santiago Reguero Fernández">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#4F46E5">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Chataliza">
+<meta property="og:title" content="Chataliza — Analizador de chats de WhatsApp online y gratis">
+<meta property="og:description" content="Analiza tu chat de WhatsApp sin que salga de tu móvil: quién escribe más, horas activas, emojis y palabras. 100% en tu navegador, gratis y sin subir nada.">
+<meta property="og:url" content="https://chataliza.pages.dev/">
+<meta property="og:image" content="https://chataliza.pages.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chataliza — analiza tu chat de WhatsApp sin que salga de tu móvil">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chataliza — Analizador de chats de WhatsApp online y gratis">
+<meta name="twitter:description" content="Analiza tu chat de WhatsApp sin que salga de tu móvil: quién escribe más, horas activas, emojis y palabras. 100% en tu navegador, gratis.">
+<meta name="twitter:image" content="https://chataliza.pages.dev/og.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://chataliza.pages.dev/#app",
+  "name": "Chataliza",
+  "alternateName": "Chataliza — Analizador de chats de WhatsApp",
+  "description": "Analizador de chats de WhatsApp que funciona 100% en el navegador: calcula quién escribe más, horas y días activos, emojis y palabras más usadas, rachas y tiempos de respuesta, sin subir el archivo a ningún servidor.",
+  "url": "https://chataliza.pages.dev/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Cualquiera (se ejecuta en el navegador)",
+  "browserRequirements": "Requiere JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Santiago Reguero Fernández",
+    "url": "https://santiago-off.github.io/"
+  },
+  "inLanguage": "es"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://chataliza.pages.dev/#website",
+  "name": "Chataliza",
+  "url": "https://chataliza.pages.dev/",
+  "description": "Analiza tu chat de WhatsApp sin que salga de tu móvil. Gratis y 100% en el navegador.",
+  "inLanguage": "es",
+  "publisher": { "@type": "Person", "name": "Santiago Reguero Fernández" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://chataliza.pages.dev/" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<noscript><div class="noscript-banner">Chataliza necesita JavaScript para funcionar: todo el análisis ocurre en tu navegador, por eso no funciona sin él. No se envía nada a ningún servidor.</div></noscript>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="logo" href="index.html" aria-label="Chataliza — inicio">
+      <svg class="logo__icon" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#4F46E5"/><stop offset="1" stop-color="#06B6D4"/>
+        </linearGradient></defs>
+        <rect width="64" height="64" rx="16" fill="url(#hg)"/>
+        <path d="M14 24c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v6c0 6.6-5.4 12-12 12H24.8L16 49.5c-.9.7-2.2 0-2-1.1l1.4-8.2C15.1 37.7 14 34.3 14 30.6V24z" fill="#fff"/>
+        <circle cx="24" cy="27" r="2.6" fill="#4F46E5"/><circle cx="32" cy="27" r="2.6" fill="#4F46E5"/><circle cx="40" cy="27" r="2.6" fill="#06B6D4"/>
+      </svg>
+      <span class="logo__text">Chataliza</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="terminos.html">Términos</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumbs wrap" aria-label="Miga de pan">
+  <ol>
+    <li aria-current="page">Inicio</li>
+  </ol>
+</nav>
+
+<main id="contenido">
+
+  <!-- ===== Héroe: CTA visible antes de hacer scroll ===== -->
+  <section class="hero">
+    <div class="wrap wrap--narrow">
+      <p class="hero__eyebrow">💬 Gratis · sin registro · 0% subido a internet</p>
+      <h1>Analiza tu chat de WhatsApp sin que salga de tu móvil</h1>
+      <p class="hero__sub">Sube el archivo que exporta WhatsApp y en segundos verás quién escribe más, a qué horas, qué emojis y palabras usáis más. Todo se calcula dentro de tu navegador.</p>
+      <div class="hero__cta">
+        <button id="btn-analizar-hero" class="btn btn--primary btn--lg" type="button">
+          <span aria-hidden="true">📊</span> Analiza tu chat
+        </button>
+        <span class="hero__hint">Abre el selector de archivos · admite .txt y .zip</span>
+      </div>
+      <p class="hero__privacy"><strong>Nada se sube:</strong> el archivo nunca sale de tu dispositivo.</p>
+    </div>
+  </section>
+
+  <!-- ===== Zona de la app: subir / arrastrar el archivo ===== -->
+  <section class="app-zone">
+    <div class="wrap wrap--narrow">
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-describedby="dropzone-desc">
+        <svg class="dropzone__icon" width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 15V3m0 0 4 4m-4-4-4 4" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2>Arrastra aquí tu chat exportado</h2>
+        <p id="dropzone-desc">O pulsa para elegir el archivo .txt o el .zip tal cual te lo manda WhatsApp</p>
+        <span class="btn btn--outline btn--sm" aria-hidden="true">Elegir archivo</span>
+        <input type="file" id="file-input" accept=".txt,.zip,text/plain,application/zip" aria-label="Elegir archivo de chat de WhatsApp">
+        <p class="dropzone__formats">Formatos admitidos: .txt exportado en español · .zip de WhatsApp sin descomprimir</p>
+      </div>
+
+      <div class="status-box status-box--progress" id="status-progress" role="status" aria-live="polite">
+        <div style="flex:1">
+          <span id="status-progress-text">Analizando…</span>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+      </div>
+
+      <div class="status-box status-box--error" id="status-error" role="alert">
+        <span aria-hidden="true">⚠️</span>
+        <span id="status-error-text"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Resultados (ocultos hasta que hay un análisis) ===== -->
+  <section id="resultados" aria-live="polite">
+    <div class="wrap">
+      <div class="result-toolbar">
+        <h2>Tus estadísticas</h2>
+        <div class="actions">
+          <button id="btn-descargar-tarjeta" class="btn btn--outline btn--sm" type="button">Descargar tarjeta</button>
+          <button id="btn-reiniciar" class="btn btn--outline btn--sm" type="button">Analizar otro chat</button>
+        </div>
+      </div>
+
+      <p class="callout" id="resumen-rango"></p>
+
+      <div class="stat-grid" id="stat-grid"></div>
+
+      <div class="panel">
+        <h3>Quién escribe más</h3>
+        <p class="panel-note">Mensajes totales y porcentaje por persona.</p>
+        <div class="bar-list" id="bar-personas"></div>
+      </div>
+
+      <div class="panel panel-grid">
+        <div>
+          <h3>Mensajes por hora del día</h3>
+          <p class="panel-note">Hora local de cada mensaje (0–23h).</p>
+          <div class="chart-hours" id="chart-horas"></div>
+          <div class="chart-hours__labels" id="chart-horas-labels"></div>
+        </div>
+        <div>
+          <h3>Mensajes por día de la semana</h3>
+          <p class="panel-note">De lunes a domingo.</p>
+          <div class="chart-week" id="chart-semana"></div>
+        </div>
+      </div>
+
+      <div class="panel panel-grid">
+        <div>
+          <h3>Top 10 emojis</h3>
+          <p class="panel-note" id="nota-emojis">Los emojis más usados en el chat.</p>
+          <div class="bar-list" id="bar-emojis"></div>
+        </div>
+        <div>
+          <h3>Top 20 palabras</h3>
+          <p class="panel-note">Sin contar artículos, preposiciones y otras palabras muy comunes.</p>
+          <div class="bar-list" id="bar-palabras"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Detalle por persona</h3>
+        <p class="panel-note">Mensajes, palabras, medias y quién suele abrir la conversación cada día.</p>
+        <div style="overflow-x:auto">
+          <table class="people-table" id="tabla-personas">
+            <thead>
+              <tr>
+                <th>Persona</th><th class="num">Mensajes</th><th class="num">%</th>
+                <th class="num">Palabras</th><th class="num">Media pal./msj</th>
+                <th class="num">1º del día</th><th class="num">Respuesta típica</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Tarjeta para compartir</h3>
+        <p class="panel-note">Se genera en tu navegador con &lt;canvas&gt;: descárgala y compártela donde quieras.</p>
+        <div class="share-card-preview"><canvas id="tarjeta-canvas" width="1080" height="1080"></canvas></div>
+        <div class="text-center"><button id="btn-descargar-tarjeta-2" class="btn btn--primary btn--sm" type="button">Descargar PNG</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Cómo funciona ===== -->
+  <section class="section--alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cómo funciona</h2>
+        <p>Tres pasos, sin cuentas ni instalaciones.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step__num">1</span>
+          <h3>Exporta el chat</h3>
+          <p>En WhatsApp, abre el chat o grupo → menú (⋮ en Android, el nombre en iPhone) → <strong>Más</strong> → <strong>Exportar chat</strong> → elige <strong>«Sin archivos multimedia»</strong> para que pese poco.</p>
+        </div>
+        <div class="step">
+          <span class="step__num">2</span>
+          <h3>Súbelo aquí</h3>
+          <p>Arrastra el <code>.zip</code> o el <code>.txt</code> a esta página, o pulsa el botón y elígelo. No hace falta descomprimir nada a mano.</p>
+        </div>
+        <div class="step">
+          <span class="step__num">3</span>
+          <h3>Mira tus estadísticas</h3>
+          <p>En segundos verás quién escribe más, a qué horas, las palabras y emojis más usados, y podrás descargar una tarjeta-resumen para compartir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Por qué es privado ===== -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Por qué es privado de verdad</h2>
+        <p>«Todo en el navegador» no es un eslogan: así está construido.</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-item">
+          <div class="privacy-item__icon" aria-hidden="true">🔒</div>
+          <div>
+            <h3>Nada se sube</h3>
+            <p>El archivo se lee con la API de archivos del propio navegador. Chataliza no tiene servidor al que enviarlo.</p>
+          </div>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-item__icon" aria-hidden="true">🧮</div>
+          <div>
+            <h3>Todo el cálculo es local</h3>
+            <p>El análisis, los gráficos y la tarjeta para compartir se generan con JavaScript en tu propio dispositivo.</p>
+          </div>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-item__icon" aria-hidden="true">🧾</div>
+          <div>
+            <h3>Compruébalo tú mismo</h3>
+            <p>Abre las herramientas de desarrollador de tu navegador, pestaña «Red», y analiza un chat: no verás ninguna petición con tu archivo.</p>
+          </div>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-item__icon" aria-hidden="true">🗑️</div>
+          <div>
+            <h3>No se guarda nada</h3>
+            <p>No hay base de datos ni cuentas. Si recargas la página, el resultado desaparece y tienes que volver a analizar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ resumida ===== -->
+  <section class="section--alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Preguntas frecuentes</h2>
+        <p>Lo que más se pregunta antes de analizar un chat.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Chataliza sube mi chat a algún servidor?</summary>
+          <div class="faq-answer"><p>No, nunca. Todo el análisis ocurre en tu navegador con JavaScript; el archivo no viaja por internet en ningún momento.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Está afiliado a WhatsApp o Meta?</summary>
+          <div class="faq-answer"><p>No. Chataliza es un proyecto independiente, no afiliado a WhatsApp ni a Meta. Solo procesa, en tu navegador, el archivo que tú exportas.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Es gratis de verdad?</summary>
+          <div class="faq-answer"><p>Sí, 100% gratis y sin límite de uso. Es una página estática, sin costes de servidor que repercutir.</p></div>
+        </details>
+      </div>
+      <p class="faq-more"><a href="faq.html">Ver todas las preguntas →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <a class="logo" href="index.html">
+          <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect width="64" height="64" rx="16" fill="#4F46E5"/>
+            <path d="M14 24c0-6.6 5.4-12 12-12h12c6.6 0 12 5.4 12 12v6c0 6.6-5.4 12-12 12H24.8L16 49.5c-.9.7-2.2 0-2-1.1l1.4-8.2C15.1 37.7 14 34.3 14 30.6V24z" fill="#fff"/>
+          </svg>
+          Chataliza
+        </a>
+        <p class="tagline">Analiza tu chat de WhatsApp sin que salga de tu móvil.</p>
+      </div>
+      <nav aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacidad.html">Privacidad</a></li>
+          <li><a href="terminos.html">Términos de uso</a></li>
+          <li><a href="aviso-legal.html">Aviso legal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Sitio">
+        <h2>Sitio</h2>
+        <ul>
+          <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="gracias.html">Agradecimientos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="disclaimer">Chataliza no está afiliada a WhatsApp ni a Meta. «WhatsApp» es una marca registrada de WhatsApp LLC, filial de Meta Platforms, Inc. Chataliza solo procesa, en tu propio navegador, el archivo que tú exportas: no lo enviamos ni lo almacenamos en ningún servidor.</p>
+    <p class="copyright">© 2026 Santiago Reguero Fernández.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

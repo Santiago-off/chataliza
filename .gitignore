@@ -1,0 +1,11 @@
+# NO publicar — interno de Batuta (el sistema es privado; solo el resultado es público)
+PROYECTO.md
+
+# Scripts de generación (no forman parte del sitio servido)
+*.py
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db
